@@ -3,7 +3,7 @@
 ## Installation
 
 1. Clone this repository
-2. Run `sail up -d`
+2. Run `sail up -d` or `docker-compose up -d` to start the containers
 3. Access `http://localhost:8000/docs` in your browser to check api docs
 
 ## API

@@ -6,7 +6,6 @@ use App\Models\TodoItem;
 use App\Http\Requests\StoreTodoItemRequest;
 use App\Http\Requests\UpdateTodoItemRequest;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Redis;
 use Knuckles\Scribe\Attributes\Response;
 use Spatie\QueryBuilder\QueryBuilder;
 
@@ -17,6 +16,31 @@ use Spatie\QueryBuilder\QueryBuilder;
 */
 class TodoItemController extends Controller
 {
+    /**
+     * Get post stats
+     *
+     * @authenticated
+     * @return \Illuminate\Http\JsonResponse
+     */
+    #[Response(content: '{"total": "integer", "completed": "integer", "pending": "integer", "overdue": "integer"}', status: 200, description: 'Success')]
+    #[Response(content: '{"message": "string"}', status: 403, description: 'Unauthorized')]
+    public function stats(Request $request)
+    {
+        $owner = $request->user()->id;
+
+        $total = TodoItem::where('user_id', $owner)->count();
+        $completed = TodoItem::where('user_id', $owner)->where('completed', true)->count();
+        $pending = TodoItem::where('user_id', $owner)->where('completed', false)->count();
+        $overdue = TodoItem::where('user_id', $owner)->where('due_date', '<', now())->count();
+
+        return response()->json([
+            'total' => $total,
+            'completed' => $completed,
+            'pending' => $pending,
+            'overdue' => $overdue
+        ]);
+    }
+
     /**
      * Display a listing of the resource.
      *

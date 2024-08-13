@@ -34,7 +34,11 @@ class AuthController extends Controller
         }
 
         return response()->json([
-            'token' => auth()->user()->createToken()
+            'token' => auth()->user()->createToken(),
+            'user' => [
+                'email' => auth()->user()->email,
+                'name' => auth()->user()->name
+            ]
         ]);
     }
 
@@ -53,7 +57,29 @@ class AuthController extends Controller
         $user = User::create($request->validated());
 
         return response()->json([
-            'token' => $user->createToken()
+            'token' => $user->createToken(),
+            'user' => [
+                'email' => $user->email,
+                'name' => $user->name
+            ]
+        ]);
+    }
+
+    /**
+     * Get user data
+     *
+     * @return JsonResponse
+     */
+    #[Response(content: '{"user": {"email": "string", "name": "string"}}', status: 200, description: 'Success')]
+    #[Response(content: '{"message": "string"}', status: 401, description: 'Unauthorized')]
+    #[Response(content: '{"message": "string"}', status: 500, description: 'Server error')]
+    public function me(): JsonResponse
+    {
+        return response()->json([
+            'user' => [
+                'email' => auth()->user()->email,
+                'name' => auth()->user()->name
+            ]
         ]);
     }
 }

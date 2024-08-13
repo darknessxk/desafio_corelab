@@ -32,7 +32,7 @@ endpoints:
         name: email
         description: 'The email of the user. Must be a valid email address.'
         required: true
-        example: pparisian@example.com
+        example: raphaelle37@example.org
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -41,14 +41,14 @@ endpoints:
         name: password
         description: 'The password of the user.'
         required: true
-        example: nihil
+        example: eaque
         type: string
         enumValues: []
         exampleWasSpecified: false
         custom: []
     cleanBodyParameters:
-      email: pparisian@example.com
-      password: nihil
+      email: raphaelle37@example.org
+      password: eaque
     fileParameters: []
     responses:
       -
@@ -108,7 +108,7 @@ endpoints:
         name: name
         description: 'The name of the user.'
         required: true
-        example: libero
+        example: et
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -117,7 +117,7 @@ endpoints:
         name: email
         description: 'The email of the user. Must be a valid email address.'
         required: true
-        example: carmela.damore@example.net
+        example: bahringer.amber@example.com
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -126,15 +126,15 @@ endpoints:
         name: password
         description: 'The password of the user.'
         required: true
-        example: atque
+        example: inventore
         type: string
         enumValues: []
         exampleWasSpecified: false
         custom: []
     cleanBodyParameters:
-      name: libero
-      email: carmela.damore@example.net
-      password: atque
+      name: et
+      email: bahringer.amber@example.com
+      password: inventore
     fileParameters: []
     responses:
       -
@@ -154,6 +154,56 @@ endpoints:
         content: '{"message": "string"}'
         headers: []
         description: 'Validation error'
+        custom: []
+      -
+        status: 500
+        content: '{"message": "string"}'
+        headers: []
+        description: 'Server error'
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - GET
+    uri: api/auth/me
+    metadata:
+      groupName: 'Authentication endpoints'
+      groupDescription: |-
+
+        Authentication endpoints
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Get user data'
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: '{"user": {"email": "string", "name": "string"}}'
+        headers: []
+        description: Success
+        custom: []
+      -
+        status: 401
+        content: '{"message": "string"}'
+        headers: []
+        description: Unauthorized
         custom: []
       -
         status: 500

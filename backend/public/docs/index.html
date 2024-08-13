@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <title>CodeLab API Documentation</title>
+    <title>Core Notes API Documentation</title>
 
     <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
 
@@ -71,6 +71,9 @@
                                                                                 <li class="tocify-item level-2" data-unique="authentication-endpoints-POSTapi-auth-register">
                                 <a href="#authentication-endpoints-POSTapi-auth-register">Register</a>
                             </li>
+                                                                                <li class="tocify-item level-2" data-unique="authentication-endpoints-GETapi-auth-me">
+                                <a href="#authentication-endpoints-GETapi-auth-me">Get user data</a>
+                            </li>
                                                                         </ul>
                             </ul>
                     <ul id="tocify-header-todo-item-management" class="tocify-header">
@@ -78,20 +81,23 @@
                     <a href="#todo-item-management">Todo Item Management</a>
                 </li>
                                     <ul id="tocify-subheader-todo-item-management" class="tocify-subheader">
-                                                    <li class="tocify-item level-2" data-unique="todo-item-management-GETapi-todo">
+                                                    <li class="tocify-item level-2" data-unique="todo-item-management-GETapi-todo-stats">
+                                <a href="#todo-item-management-GETapi-todo-stats">Get post stats</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="todo-item-management-GETapi-todo">
                                 <a href="#todo-item-management-GETapi-todo">Display a listing of the resource.</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="todo-item-management-POSTapi-todo">
                                 <a href="#todo-item-management-POSTapi-todo">Store anewly created resource in storage.</a>
                             </li>
-                                                                                <li class="tocify-item level-2" data-unique="todo-item-management-GETapi-todo--id-">
-                                <a href="#todo-item-management-GETapi-todo--id-">Display the specified resource.</a>
+                                                                                <li class="tocify-item level-2" data-unique="todo-item-management-GETapi-todo--todo_id-">
+                                <a href="#todo-item-management-GETapi-todo--todo_id-">Display the specified resource.</a>
                             </li>
-                                                                                <li class="tocify-item level-2" data-unique="todo-item-management-PUTapi-todo--id-">
-                                <a href="#todo-item-management-PUTapi-todo--id-">Update the specified resource in storage.</a>
+                                                                                <li class="tocify-item level-2" data-unique="todo-item-management-PUTapi-todo--todo_id-">
+                                <a href="#todo-item-management-PUTapi-todo--todo_id-">Update the specified resource in storage.</a>
                             </li>
-                                                                                <li class="tocify-item level-2" data-unique="todo-item-management-DELETEapi-todo--id-">
-                                <a href="#todo-item-management-DELETEapi-todo--id-">Remove the specified resource from storage.</a>
+                                                                                <li class="tocify-item level-2" data-unique="todo-item-management-DELETEapi-todo--todo_id-">
+                                <a href="#todo-item-management-DELETEapi-todo--todo_id-">Remove the specified resource from storage.</a>
                             </li>
                                                                         </ul>
                             </ul>
@@ -145,8 +151,8 @@ You can switch the language used with the tabs at the top right (or from the nav
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"email\": \"pparisian@example.com\",
-    \"password\": \"nihil\"
+    \"email\": \"raphaelle37@example.org\",
+    \"password\": \"eaque\"
 }"
 </code></pre></div>
 
@@ -162,8 +168,8 @@ const headers = {
 };
 
 let body = {
-    "email": "pparisian@example.com",
-    "password": "nihil"
+    "email": "raphaelle37@example.org",
+    "password": "eaque"
 };
 
 fetch(url, {
@@ -271,10 +277,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="email"                data-endpoint="POSTapi-auth-login"
-               value="pparisian@example.com"
+               value="raphaelle37@example.org"
                data-component="body">
     <br>
-<p>The email of the user. Must be a valid email address. Example: <code>pparisian@example.com</code></p>
+<p>The email of the user. Must be a valid email address. Example: <code>raphaelle37@example.org</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>password</code></b>&nbsp;&nbsp;
@@ -282,10 +288,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="password"                data-endpoint="POSTapi-auth-login"
-               value="nihil"
+               value="eaque"
                data-component="body">
     <br>
-<p>The password of the user. Example: <code>nihil</code></p>
+<p>The password of the user. Example: <code>eaque</code></p>
         </div>
         </form>
 
@@ -306,9 +312,9 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"name\": \"libero\",
-    \"email\": \"carmela.damore@example.net\",
-    \"password\": \"atque\"
+    \"name\": \"et\",
+    \"email\": \"bahringer.amber@example.com\",
+    \"password\": \"inventore\"
 }"
 </code></pre></div>
 
@@ -324,9 +330,9 @@ const headers = {
 };
 
 let body = {
-    "name": "libero",
-    "email": "carmela.damore@example.net",
-    "password": "atque"
+    "name": "et",
+    "email": "bahringer.amber@example.com",
+    "password": "inventore"
 };
 
 fetch(url, {
@@ -434,10 +440,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="name"                data-endpoint="POSTapi-auth-register"
-               value="libero"
+               value="et"
                data-component="body">
     <br>
-<p>The name of the user. Example: <code>libero</code></p>
+<p>The name of the user. Example: <code>et</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>email</code></b>&nbsp;&nbsp;
@@ -445,10 +451,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="email"                data-endpoint="POSTapi-auth-register"
-               value="carmela.damore@example.net"
+               value="bahringer.amber@example.com"
                data-component="body">
     <br>
-<p>The email of the user. Must be a valid email address. Example: <code>carmela.damore@example.net</code></p>
+<p>The email of the user. Must be a valid email address. Example: <code>bahringer.amber@example.com</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>password</code></b>&nbsp;&nbsp;
@@ -456,18 +462,265 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="password"                data-endpoint="POSTapi-auth-register"
-               value="atque"
+               value="inventore"
                data-component="body">
     <br>
-<p>The password of the user. Example: <code>atque</code></p>
+<p>The password of the user. Example: <code>inventore</code></p>
         </div>
         </form>
+
+                    <h2 id="authentication-endpoints-GETapi-auth-me">Get user data</h2>
+
+<p>
+</p>
+
+
+
+<span id="example-requests-GETapi-auth-me">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request GET \
+    --get "http://localhost/api/auth/me" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/auth/me"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-GETapi-auth-me">
+            <blockquote>
+            <p>Example response (200, Success):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;user&quot;: {
+        &quot;email&quot;: &quot;string&quot;,
+        &quot;name&quot;: &quot;string&quot;
+    }
+}</code>
+ </pre>
+            <blockquote>
+            <p>Example response (401, Unauthorized):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;message&quot;: &quot;string&quot;
+}</code>
+ </pre>
+            <blockquote>
+            <p>Example response (500, Server error):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;message&quot;: &quot;string&quot;
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-GETapi-auth-me" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-GETapi-auth-me"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-auth-me"
+      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-GETapi-auth-me" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-auth-me">
+
+Tip: Check that you&#039;re properly connected to the network.
+If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
+You can check the Dev Tools console for debugging information.</code></pre>
+</span>
+<form id="form-GETapi-auth-me" data-method="GET"
+      data-path="api/auth/me"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-auth-me', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/auth/me</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="GETapi-auth-me"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="GETapi-auth-me"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                        </form>
 
                 <h1 id="todo-item-management">Todo Item Management</h1>
 
     <p>Todo item management endpoints</p>
 
-                                <h2 id="todo-item-management-GETapi-todo">Display a listing of the resource.</h2>
+                                <h2 id="todo-item-management-GETapi-todo-stats">Get post stats</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+
+
+<span id="example-requests-GETapi-todo-stats">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request GET \
+    --get "http://localhost/api/todo/stats" \
+    --header "Authorization: Bearer {YOUR_AUTH_KEY}" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/todo/stats"
+);
+
+const headers = {
+    "Authorization": "Bearer {YOUR_AUTH_KEY}",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-GETapi-todo-stats">
+            <blockquote>
+            <p>Example response (200, Success):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;total&quot;: &quot;integer&quot;,
+    &quot;completed&quot;: &quot;integer&quot;,
+    &quot;pending&quot;: &quot;integer&quot;,
+    &quot;overdue&quot;: &quot;integer&quot;
+}</code>
+ </pre>
+            <blockquote>
+            <p>Example response (403, Unauthorized):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;message&quot;: &quot;string&quot;
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-GETapi-todo-stats" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-GETapi-todo-stats"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-todo-stats"
+      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-GETapi-todo-stats" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-todo-stats">
+
+Tip: Check that you&#039;re properly connected to the network.
+If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
+You can check the Dev Tools console for debugging information.</code></pre>
+</span>
+<form id="form-GETapi-todo-stats" data-method="GET"
+      data-path="api/todo/stats"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-todo-stats', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/todo/stats</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Authorization</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Authorization" class="auth-value"               data-endpoint="GETapi-todo-stats"
+               value="Bearer {YOUR_AUTH_KEY}"
+               data-component="header">
+    <br>
+<p>Example: <code>Bearer {YOUR_AUTH_KEY}</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="GETapi-todo-stats"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="GETapi-todo-stats"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                        </form>
+
+                    <h2 id="todo-item-management-GETapi-todo">Display a listing of the resource.</h2>
 
 <p>
 <small class="badge badge-darkred">requires authentication</small>
@@ -613,11 +866,11 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"title\": \"hvnhss\",
-    \"description\": \"Reprehenderit ut culpa consequatur vero eaque qui quam maiores.\",
+    \"title\": \"xrswfdhjwxtdojkaxqeuhixmfvjtpwcaqfhhmiaytjfejkceizyceiuotpu\",
+    \"description\": \"Molestias at placeat explicabo recusandae cupiditate animi perspiciatis ad.\",
     \"completed\": true,
-    \"due_date\": \"2024-08-13T01:28:46\",
-    \"favorite\": false
+    \"due_date\": \"2024-08-13T14:20:13\",
+    \"favorite\": true
 }"
 </code></pre></div>
 
@@ -634,11 +887,11 @@ const headers = {
 };
 
 let body = {
-    "title": "hvnhss",
-    "description": "Reprehenderit ut culpa consequatur vero eaque qui quam maiores.",
+    "title": "xrswfdhjwxtdojkaxqeuhixmfvjtpwcaqfhhmiaytjfejkceizyceiuotpu",
+    "description": "Molestias at placeat explicabo recusandae cupiditate animi perspiciatis ad.",
     "completed": true,
-    "due_date": "2024-08-13T01:28:46",
-    "favorite": false
+    "due_date": "2024-08-13T14:20:13",
+    "favorite": true
 };
 
 fetch(url, {
@@ -755,21 +1008,21 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="title"                data-endpoint="POSTapi-todo"
-               value="hvnhss"
+               value="xrswfdhjwxtdojkaxqeuhixmfvjtpwcaqfhhmiaytjfejkceizyceiuotpu"
                data-component="body">
     <br>
-<p>The title of the todo item. Must not be greater than 255 characters. Must be at least 3 characters. Example: <code>hvnhss</code></p>
+<p>The title of the todo item. Must not be greater than 255 characters. Must be at least 3 characters. Example: <code>xrswfdhjwxtdojkaxqeuhixmfvjtpwcaqfhhmiaytjfejkceizyceiuotpu</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>description</code></b>&nbsp;&nbsp;
 <small>string</small>&nbsp;
-<i>optional</i> &nbsp;
+ &nbsp;
                 <input type="text" style="display: none"
                               name="description"                data-endpoint="POSTapi-todo"
-               value="Reprehenderit ut culpa consequatur vero eaque qui quam maiores."
+               value="Molestias at placeat explicabo recusandae cupiditate animi perspiciatis ad."
                data-component="body">
     <br>
-<p>The description of the todo item. Example: <code>Reprehenderit ut culpa consequatur vero eaque qui quam maiores.</code></p>
+<p>The description of the todo item. Must be at least 3 characters. Example: <code>Molestias at placeat explicabo recusandae cupiditate animi perspiciatis ad.</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>completed</code></b>&nbsp;&nbsp;
@@ -809,10 +1062,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="due_date"                data-endpoint="POSTapi-todo"
-               value="2024-08-13T01:28:46"
+               value="2024-08-13T14:20:13"
                data-component="body">
     <br>
-<p>The due date of the todo item. Must be a valid date. Example: <code>2024-08-13T01:28:46</code></p>
+<p>The due date of the todo item. Must be a valid date. Example: <code>2024-08-13T14:20:13</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>favorite</code></b>&nbsp;&nbsp;
@@ -833,11 +1086,11 @@ You can check the Dev Tools console for debugging information.</code></pre>
             <code>false</code>
         </label>
     <br>
-<p>The favorite status of the todo item. Example: <code>false</code></p>
+<p>The favorite status of the todo item. Example: <code>true</code></p>
         </div>
         </form>
 
-                    <h2 id="todo-item-management-GETapi-todo--id-">Display the specified resource.</h2>
+                    <h2 id="todo-item-management-GETapi-todo--todo_id-">Display the specified resource.</h2>
 
 <p>
 <small class="badge badge-darkred">requires authentication</small>
@@ -845,7 +1098,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 
 
-<span id="example-requests-GETapi-todo--id-">
+<span id="example-requests-GETapi-todo--todo_id-">
 <blockquote>Example request:</blockquote>
 
 
@@ -875,7 +1128,7 @@ fetch(url, {
 
 </span>
 
-<span id="example-responses-GETapi-todo--id-">
+<span id="example-responses-GETapi-todo--todo_id-">
             <blockquote>
             <p>Example response (200, Success):</p>
         </blockquote>
@@ -893,34 +1146,34 @@ fetch(url, {
 }</code>
  </pre>
     </span>
-<span id="execution-results-GETapi-todo--id-" hidden>
+<span id="execution-results-GETapi-todo--todo_id-" hidden>
     <blockquote>Received response<span
-                id="execution-response-status-GETapi-todo--id-"></span>:
+                id="execution-response-status-GETapi-todo--todo_id-"></span>:
     </blockquote>
-    <pre class="json"><code id="execution-response-content-GETapi-todo--id-"
+    <pre class="json"><code id="execution-response-content-GETapi-todo--todo_id-"
       data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
 </span>
-<span id="execution-error-GETapi-todo--id-" hidden>
+<span id="execution-error-GETapi-todo--todo_id-" hidden>
     <blockquote>Request failed with error:</blockquote>
-    <pre><code id="execution-error-message-GETapi-todo--id-">
+    <pre><code id="execution-error-message-GETapi-todo--todo_id-">
 
 Tip: Check that you&#039;re properly connected to the network.
 If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
 You can check the Dev Tools console for debugging information.</code></pre>
 </span>
-<form id="form-GETapi-todo--id-" data-method="GET"
-      data-path="api/todo/{id}"
+<form id="form-GETapi-todo--todo_id-" data-method="GET"
+      data-path="api/todo/{todo_id}"
       data-authed="1"
       data-hasfiles="0"
       data-isarraybody="0"
       autocomplete="off"
-      onsubmit="event.preventDefault(); executeTryOut('GETapi-todo--id-', this);">
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-todo--todo_id-', this);">
     <h3>
         Request&nbsp;&nbsp;&nbsp;
             </h3>
             <p>
             <small class="badge badge-green">GET</small>
-            <b><code>api/todo/{id}</code></b>
+            <b><code>api/todo/{todo_id}</code></b>
         </p>
                 <h4 class="fancy-heading-panel"><b>Headers</b></h4>
                                 <div style="padding-left: 28px; clear: unset;">
@@ -928,7 +1181,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 &nbsp;
  &nbsp;
                 <input type="text" style="display: none"
-                              name="Authorization" class="auth-value"               data-endpoint="GETapi-todo--id-"
+                              name="Authorization" class="auth-value"               data-endpoint="GETapi-todo--todo_id-"
                value="Bearer {YOUR_AUTH_KEY}"
                data-component="header">
     <br>
@@ -939,7 +1192,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 &nbsp;
  &nbsp;
                 <input type="text" style="display: none"
-                              name="Content-Type"                data-endpoint="GETapi-todo--id-"
+                              name="Content-Type"                data-endpoint="GETapi-todo--todo_id-"
                value="application/json"
                data-component="header">
     <br>
@@ -950,7 +1203,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 &nbsp;
  &nbsp;
                 <input type="text" style="display: none"
-                              name="Accept"                data-endpoint="GETapi-todo--id-"
+                              name="Accept"                data-endpoint="GETapi-todo--todo_id-"
                value="application/json"
                data-component="header">
     <br>
@@ -958,11 +1211,11 @@ You can check the Dev Tools console for debugging information.</code></pre>
             </div>
                         <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
                     <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>id</code></b>&nbsp;&nbsp;
+                <b style="line-height: 2;"><code>todo_id</code></b>&nbsp;&nbsp;
 <small>integer</small>&nbsp;
  &nbsp;
                 <input type="number" style="display: none"
-               step="any"               name="id"                data-endpoint="GETapi-todo--id-"
+               step="any"               name="todo_id"                data-endpoint="GETapi-todo--todo_id-"
                value="2"
                data-component="url">
     <br>
@@ -970,7 +1223,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
             </div>
                     </form>
 
-                    <h2 id="todo-item-management-PUTapi-todo--id-">Update the specified resource in storage.</h2>
+                    <h2 id="todo-item-management-PUTapi-todo--todo_id-">Update the specified resource in storage.</h2>
 
 <p>
 <small class="badge badge-darkred">requires authentication</small>
@@ -978,7 +1231,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 
 
-<span id="example-requests-PUTapi-todo--id-">
+<span id="example-requests-PUTapi-todo--todo_id-">
 <blockquote>Example request:</blockquote>
 
 
@@ -989,11 +1242,11 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"title\": \"mxtmr\",
-    \"description\": \"Tempora enim non commodi atque.\",
-    \"completed\": false,
-    \"due_date\": \"2024-08-13T01:28:46\",
-    \"favorite\": true
+    \"title\": \"awsmtzuqluvxnkaslitocxhhsbndmkcgkunff\",
+    \"description\": \"Et aut eum dignissimos soluta.\",
+    \"completed\": true,
+    \"due_date\": \"2024-08-13T14:20:14\",
+    \"favorite\": false
 }"
 </code></pre></div>
 
@@ -1010,11 +1263,11 @@ const headers = {
 };
 
 let body = {
-    "title": "mxtmr",
-    "description": "Tempora enim non commodi atque.",
-    "completed": false,
-    "due_date": "2024-08-13T01:28:46",
-    "favorite": true
+    "title": "awsmtzuqluvxnkaslitocxhhsbndmkcgkunff",
+    "description": "Et aut eum dignissimos soluta.",
+    "completed": true,
+    "due_date": "2024-08-13T14:20:14",
+    "favorite": false
 };
 
 fetch(url, {
@@ -1025,7 +1278,7 @@ fetch(url, {
 
 </span>
 
-<span id="example-responses-PUTapi-todo--id-">
+<span id="example-responses-PUTapi-todo--todo_id-">
             <blockquote>
             <p>Example response (200, Success):</p>
         </blockquote>
@@ -1061,38 +1314,34 @@ fetch(url, {
 }</code>
  </pre>
     </span>
-<span id="execution-results-PUTapi-todo--id-" hidden>
+<span id="execution-results-PUTapi-todo--todo_id-" hidden>
     <blockquote>Received response<span
-                id="execution-response-status-PUTapi-todo--id-"></span>:
+                id="execution-response-status-PUTapi-todo--todo_id-"></span>:
     </blockquote>
-    <pre class="json"><code id="execution-response-content-PUTapi-todo--id-"
+    <pre class="json"><code id="execution-response-content-PUTapi-todo--todo_id-"
       data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
 </span>
-<span id="execution-error-PUTapi-todo--id-" hidden>
+<span id="execution-error-PUTapi-todo--todo_id-" hidden>
     <blockquote>Request failed with error:</blockquote>
-    <pre><code id="execution-error-message-PUTapi-todo--id-">
+    <pre><code id="execution-error-message-PUTapi-todo--todo_id-">
 
 Tip: Check that you&#039;re properly connected to the network.
 If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
 You can check the Dev Tools console for debugging information.</code></pre>
 </span>
-<form id="form-PUTapi-todo--id-" data-method="PUT"
-      data-path="api/todo/{id}"
+<form id="form-PUTapi-todo--todo_id-" data-method="PUT"
+      data-path="api/todo/{todo_id}"
       data-authed="1"
       data-hasfiles="0"
       data-isarraybody="0"
       autocomplete="off"
-      onsubmit="event.preventDefault(); executeTryOut('PUTapi-todo--id-', this);">
+      onsubmit="event.preventDefault(); executeTryOut('PUTapi-todo--todo_id-', this);">
     <h3>
         Request&nbsp;&nbsp;&nbsp;
             </h3>
             <p>
             <small class="badge badge-darkblue">PUT</small>
-            <b><code>api/todo/{id}</code></b>
-        </p>
-            <p>
-            <small class="badge badge-purple">PATCH</small>
-            <b><code>api/todo/{id}</code></b>
+            <b><code>api/todo/{todo_id}</code></b>
         </p>
                 <h4 class="fancy-heading-panel"><b>Headers</b></h4>
                                 <div style="padding-left: 28px; clear: unset;">
@@ -1100,7 +1349,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 &nbsp;
  &nbsp;
                 <input type="text" style="display: none"
-                              name="Authorization" class="auth-value"               data-endpoint="PUTapi-todo--id-"
+                              name="Authorization" class="auth-value"               data-endpoint="PUTapi-todo--todo_id-"
                value="Bearer {YOUR_AUTH_KEY}"
                data-component="header">
     <br>
@@ -1111,7 +1360,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 &nbsp;
  &nbsp;
                 <input type="text" style="display: none"
-                              name="Content-Type"                data-endpoint="PUTapi-todo--id-"
+                              name="Content-Type"                data-endpoint="PUTapi-todo--todo_id-"
                value="application/json"
                data-component="header">
     <br>
@@ -1122,7 +1371,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 &nbsp;
  &nbsp;
                 <input type="text" style="display: none"
-                              name="Accept"                data-endpoint="PUTapi-todo--id-"
+                              name="Accept"                data-endpoint="PUTapi-todo--todo_id-"
                value="application/json"
                data-component="header">
     <br>
@@ -1130,11 +1379,11 @@ You can check the Dev Tools console for debugging information.</code></pre>
             </div>
                         <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
                     <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>id</code></b>&nbsp;&nbsp;
+                <b style="line-height: 2;"><code>todo_id</code></b>&nbsp;&nbsp;
 <small>integer</small>&nbsp;
  &nbsp;
                 <input type="number" style="display: none"
-               step="any"               name="id"                data-endpoint="PUTapi-todo--id-"
+               step="any"               name="todo_id"                data-endpoint="PUTapi-todo--todo_id-"
                value="2"
                data-component="url">
     <br>
@@ -1146,50 +1395,50 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <small>string</small>&nbsp;
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
-                              name="title"                data-endpoint="PUTapi-todo--id-"
-               value="mxtmr"
+                              name="title"                data-endpoint="PUTapi-todo--todo_id-"
+               value="awsmtzuqluvxnkaslitocxhhsbndmkcgkunff"
                data-component="body">
     <br>
-<p>The title of the todo item. Must not be greater than 255 characters. Must be at least 3 characters. Example: <code>mxtmr</code></p>
+<p>The title of the todo item. Must not be greater than 255 characters. Must be at least 3 characters. Example: <code>awsmtzuqluvxnkaslitocxhhsbndmkcgkunff</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>description</code></b>&nbsp;&nbsp;
 <small>string</small>&nbsp;
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
-                              name="description"                data-endpoint="PUTapi-todo--id-"
-               value="Tempora enim non commodi atque."
+                              name="description"                data-endpoint="PUTapi-todo--todo_id-"
+               value="Et aut eum dignissimos soluta."
                data-component="body">
     <br>
-<p>The description of the todo item. Example: <code>Tempora enim non commodi atque.</code></p>
+<p>The description of the todo item. Example: <code>Et aut eum dignissimos soluta.</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>completed</code></b>&nbsp;&nbsp;
 <small>boolean</small>&nbsp;
 <i>optional</i> &nbsp;
-                <label data-endpoint="PUTapi-todo--id-" style="display: none">
+                <label data-endpoint="PUTapi-todo--todo_id-" style="display: none">
             <input type="radio" name="completed"
                    value="true"
-                   data-endpoint="PUTapi-todo--id-"
+                   data-endpoint="PUTapi-todo--todo_id-"
                    data-component="body"             >
             <code>true</code>
         </label>
-        <label data-endpoint="PUTapi-todo--id-" style="display: none">
+        <label data-endpoint="PUTapi-todo--todo_id-" style="display: none">
             <input type="radio" name="completed"
                    value="false"
-                   data-endpoint="PUTapi-todo--id-"
+                   data-endpoint="PUTapi-todo--todo_id-"
                    data-component="body"             >
             <code>false</code>
         </label>
     <br>
-<p>The completion status of the todo item. Example: <code>false</code></p>
+<p>The completion status of the todo item. Example: <code>true</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>color</code></b>&nbsp;&nbsp;
 <small>string</small>&nbsp;
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
-                              name="color"                data-endpoint="PUTapi-todo--id-"
+                              name="color"                data-endpoint="PUTapi-todo--todo_id-"
                value=""
                data-component="body">
     <br>
@@ -1200,36 +1449,36 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <small>string</small>&nbsp;
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
-                              name="due_date"                data-endpoint="PUTapi-todo--id-"
-               value="2024-08-13T01:28:46"
+                              name="due_date"                data-endpoint="PUTapi-todo--todo_id-"
+               value="2024-08-13T14:20:14"
                data-component="body">
     <br>
-<p>The due date of the todo item. Must be a valid date. Example: <code>2024-08-13T01:28:46</code></p>
+<p>The due date of the todo item. Must be a valid date. Example: <code>2024-08-13T14:20:14</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>favorite</code></b>&nbsp;&nbsp;
 <small>boolean</small>&nbsp;
 <i>optional</i> &nbsp;
-                <label data-endpoint="PUTapi-todo--id-" style="display: none">
+                <label data-endpoint="PUTapi-todo--todo_id-" style="display: none">
             <input type="radio" name="favorite"
                    value="true"
-                   data-endpoint="PUTapi-todo--id-"
+                   data-endpoint="PUTapi-todo--todo_id-"
                    data-component="body"             >
             <code>true</code>
         </label>
-        <label data-endpoint="PUTapi-todo--id-" style="display: none">
+        <label data-endpoint="PUTapi-todo--todo_id-" style="display: none">
             <input type="radio" name="favorite"
                    value="false"
-                   data-endpoint="PUTapi-todo--id-"
+                   data-endpoint="PUTapi-todo--todo_id-"
                    data-component="body"             >
             <code>false</code>
         </label>
     <br>
-<p>The favorite status of the todo item. Example: <code>true</code></p>
+<p>The favorite status of the todo item. Example: <code>false</code></p>
         </div>
         </form>
 
-                    <h2 id="todo-item-management-DELETEapi-todo--id-">Remove the specified resource from storage.</h2>
+                    <h2 id="todo-item-management-DELETEapi-todo--todo_id-">Remove the specified resource from storage.</h2>
 
 <p>
 <small class="badge badge-darkred">requires authentication</small>
@@ -1237,7 +1486,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 
 
-<span id="example-requests-DELETEapi-todo--id-">
+<span id="example-requests-DELETEapi-todo--todo_id-">
 <blockquote>Example request:</blockquote>
 
 
@@ -1267,7 +1516,7 @@ fetch(url, {
 
 </span>
 
-<span id="example-responses-DELETEapi-todo--id-">
+<span id="example-responses-DELETEapi-todo--todo_id-">
             <blockquote>
             <p>Example response (200, Item deleted):</p>
         </blockquote>
@@ -1287,34 +1536,34 @@ fetch(url, {
 }</code>
  </pre>
     </span>
-<span id="execution-results-DELETEapi-todo--id-" hidden>
+<span id="execution-results-DELETEapi-todo--todo_id-" hidden>
     <blockquote>Received response<span
-                id="execution-response-status-DELETEapi-todo--id-"></span>:
+                id="execution-response-status-DELETEapi-todo--todo_id-"></span>:
     </blockquote>
-    <pre class="json"><code id="execution-response-content-DELETEapi-todo--id-"
+    <pre class="json"><code id="execution-response-content-DELETEapi-todo--todo_id-"
       data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
 </span>
-<span id="execution-error-DELETEapi-todo--id-" hidden>
+<span id="execution-error-DELETEapi-todo--todo_id-" hidden>
     <blockquote>Request failed with error:</blockquote>
-    <pre><code id="execution-error-message-DELETEapi-todo--id-">
+    <pre><code id="execution-error-message-DELETEapi-todo--todo_id-">
 
 Tip: Check that you&#039;re properly connected to the network.
 If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
 You can check the Dev Tools console for debugging information.</code></pre>
 </span>
-<form id="form-DELETEapi-todo--id-" data-method="DELETE"
-      data-path="api/todo/{id}"
+<form id="form-DELETEapi-todo--todo_id-" data-method="DELETE"
+      data-path="api/todo/{todo_id}"
       data-authed="1"
       data-hasfiles="0"
       data-isarraybody="0"
       autocomplete="off"
-      onsubmit="event.preventDefault(); executeTryOut('DELETEapi-todo--id-', this);">
+      onsubmit="event.preventDefault(); executeTryOut('DELETEapi-todo--todo_id-', this);">
     <h3>
         Request&nbsp;&nbsp;&nbsp;
             </h3>
             <p>
             <small class="badge badge-red">DELETE</small>
-            <b><code>api/todo/{id}</code></b>
+            <b><code>api/todo/{todo_id}</code></b>
         </p>
                 <h4 class="fancy-heading-panel"><b>Headers</b></h4>
                                 <div style="padding-left: 28px; clear: unset;">
@@ -1322,7 +1571,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 &nbsp;
  &nbsp;
                 <input type="text" style="display: none"
-                              name="Authorization" class="auth-value"               data-endpoint="DELETEapi-todo--id-"
+                              name="Authorization" class="auth-value"               data-endpoint="DELETEapi-todo--todo_id-"
                value="Bearer {YOUR_AUTH_KEY}"
                data-component="header">
     <br>
@@ -1333,7 +1582,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 &nbsp;
  &nbsp;
                 <input type="text" style="display: none"
-                              name="Content-Type"                data-endpoint="DELETEapi-todo--id-"
+                              name="Content-Type"                data-endpoint="DELETEapi-todo--todo_id-"
                value="application/json"
                data-component="header">
     <br>
@@ -1344,7 +1593,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 &nbsp;
  &nbsp;
                 <input type="text" style="display: none"
-                              name="Accept"                data-endpoint="DELETEapi-todo--id-"
+                              name="Accept"                data-endpoint="DELETEapi-todo--todo_id-"
                value="application/json"
                data-component="header">
     <br>
@@ -1352,11 +1601,11 @@ You can check the Dev Tools console for debugging information.</code></pre>
             </div>
                         <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
                     <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>id</code></b>&nbsp;&nbsp;
+                <b style="line-height: 2;"><code>todo_id</code></b>&nbsp;&nbsp;
 <small>integer</small>&nbsp;
  &nbsp;
                 <input type="number" style="display: none"
-               step="any"               name="id"                data-endpoint="DELETEapi-todo--id-"
+               step="any"               name="todo_id"                data-endpoint="DELETEapi-todo--todo_id-"
                value="2"
                data-component="url">
     <br>

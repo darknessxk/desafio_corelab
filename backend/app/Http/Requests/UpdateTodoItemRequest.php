@@ -15,10 +15,10 @@ class UpdateTodoItemRequest extends FormRequest
     {
         return [
             'title' => ['string', 'max:255', 'min:3'],
-            'description' => ['string'],
+            'description' => ['string', 'min:3'],
             'completed' => ['boolean'],
             'color' => ['hex_color'],
-            'due_date' => ['date'],
+            'due_date' => ['date', 'nullable'],
             'favorite' => ['boolean'],
         ];
     }

@@ -8,6 +8,54 @@ endpoints:
   -
     httpMethods:
       - GET
+    uri: api/todo/stats
+    metadata:
+      groupName: 'Todo Item Management'
+      groupDescription: |-
+
+        Todo item management endpoints
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Get post stats'
+      description: ''
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: '{"total": "integer", "completed": "integer", "pending": "integer", "overdue": "integer"}'
+        headers: []
+        description: Success
+        custom: []
+      -
+        status: 403
+        content: '{"message": "string"}'
+        headers: []
+        description: Unauthorized
+        custom: []
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer 6kDhVc34ZedPvfE8b5a6ag1'
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - GET
     uri: api/todo
     metadata:
       groupName: 'Todo Item Management'
@@ -54,7 +102,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer DdvZk4fa5P3haVeg861cE6b'
+      - 'Bearer DvEkf68d51Pb63aVagceZ4h'
     controller: null
     method: null
     route: null
@@ -87,16 +135,16 @@ endpoints:
         name: title
         description: 'The title of the todo item. Must not be greater than 255 characters. Must be at least 3 characters.'
         required: true
-        example: hvnhss
+        example: xrswfdhjwxtdojkaxqeuhixmfvjtpwcaqfhhmiaytjfejkceizyceiuotpu
         type: string
         enumValues: []
         exampleWasSpecified: false
         custom: []
       description:
         name: description
-        description: 'The description of the todo item.'
-        required: false
-        example: 'Reprehenderit ut culpa consequatur vero eaque qui quam maiores.'
+        description: 'The description of the todo item. Must be at least 3 characters.'
+        required: true
+        example: 'Molestias at placeat explicabo recusandae cupiditate animi perspiciatis ad.'
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -123,7 +171,7 @@ endpoints:
         name: due_date
         description: 'The due date of the todo item. Must be a valid date.'
         required: false
-        example: '2024-08-13T01:28:46'
+        example: '2024-08-13T14:20:13'
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -132,17 +180,17 @@ endpoints:
         name: favorite
         description: 'The favorite status of the todo item.'
         required: false
-        example: false
+        example: true
         type: boolean
         enumValues: []
         exampleWasSpecified: false
         custom: []
     cleanBodyParameters:
-      title: hvnhss
-      description: 'Reprehenderit ut culpa consequatur vero eaque qui quam maiores.'
+      title: xrswfdhjwxtdojkaxqeuhixmfvjtpwcaqfhhmiaytjfejkceizyceiuotpu
+      description: 'Molestias at placeat explicabo recusandae cupiditate animi perspiciatis ad.'
       completed: true
-      due_date: '2024-08-13T01:28:46'
-      favorite: false
+      due_date: '2024-08-13T14:20:13'
+      favorite: true
     fileParameters: []
     responses:
       -
@@ -173,7 +221,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 6kc3h1fd6agPVvba58ZD4Ee'
+      - 'Bearer ecbg3ZkDvh66145EdVP8afa'
     controller: null
     method: null
     route: null
@@ -181,7 +229,7 @@ endpoints:
   -
     httpMethods:
       - GET
-    uri: 'api/todo/{id}'
+    uri: 'api/todo/{todo_id}'
     metadata:
       groupName: 'Todo Item Management'
       groupDescription: |-
@@ -198,8 +246,8 @@ endpoints:
       Content-Type: application/json
       Accept: application/json
     urlParameters:
-      id:
-        name: id
+      todo_id:
+        name: todo_id
         description: 'The ID of the todo.'
         required: true
         example: 2
@@ -208,7 +256,7 @@ endpoints:
         exampleWasSpecified: false
         custom: []
     cleanUrlParameters:
-      id: 2
+      todo_id: 2
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []
@@ -231,7 +279,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer ad5gbacD8Pv6e6V3fEZh4k1'
+      - 'Bearer 348cbdg1D56afZhak6EPevV'
     controller: null
     method: null
     route: null
@@ -239,8 +287,7 @@ endpoints:
   -
     httpMethods:
       - PUT
-      - PATCH
-    uri: 'api/todo/{id}'
+    uri: 'api/todo/{todo_id}'
     metadata:
       groupName: 'Todo Item Management'
       groupDescription: |-
@@ -257,8 +304,8 @@ endpoints:
       Content-Type: application/json
       Accept: application/json
     urlParameters:
-      id:
-        name: id
+      todo_id:
+        name: todo_id
         description: 'The ID of the todo.'
         required: true
         example: 2
@@ -267,7 +314,7 @@ endpoints:
         exampleWasSpecified: false
         custom: []
     cleanUrlParameters:
-      id: 2
+      todo_id: 2
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters:
@@ -275,7 +322,7 @@ endpoints:
         name: title
         description: 'The title of the todo item. Must not be greater than 255 characters. Must be at least 3 characters.'
         required: false
-        example: mxtmr
+        example: awsmtzuqluvxnkaslitocxhhsbndmkcgkunff
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -284,7 +331,7 @@ endpoints:
         name: description
         description: 'The description of the todo item.'
         required: false
-        example: 'Tempora enim non commodi atque.'
+        example: 'Et aut eum dignissimos soluta.'
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -293,7 +340,7 @@ endpoints:
         name: completed
         description: 'The completion status of the todo item.'
         required: false
-        example: false
+        example: true
         type: boolean
         enumValues: []
         exampleWasSpecified: false
@@ -311,7 +358,7 @@ endpoints:
         name: due_date
         description: 'The due date of the todo item. Must be a valid date.'
         required: false
-        example: '2024-08-13T01:28:46'
+        example: '2024-08-13T14:20:14'
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -320,17 +367,17 @@ endpoints:
         name: favorite
         description: 'The favorite status of the todo item.'
         required: false
-        example: true
+        example: false
         type: boolean
         enumValues: []
         exampleWasSpecified: false
         custom: []
     cleanBodyParameters:
-      title: mxtmr
-      description: 'Tempora enim non commodi atque.'
-      completed: false
-      due_date: '2024-08-13T01:28:46'
-      favorite: true
+      title: awsmtzuqluvxnkaslitocxhhsbndmkcgkunff
+      description: 'Et aut eum dignissimos soluta.'
+      completed: true
+      due_date: '2024-08-13T14:20:14'
+      favorite: false
     fileParameters: []
     responses:
       -
@@ -361,7 +408,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 3DeZdk5bgfhc4a6E8Pv16aV'
+      - 'Bearer a6kcvb41gZa8fPVDE3h6ed5'
     controller: null
     method: null
     route: null
@@ -369,7 +416,7 @@ endpoints:
   -
     httpMethods:
       - DELETE
-    uri: 'api/todo/{id}'
+    uri: 'api/todo/{todo_id}'
     metadata:
       groupName: 'Todo Item Management'
       groupDescription: |-
@@ -386,8 +433,8 @@ endpoints:
       Content-Type: application/json
       Accept: application/json
     urlParameters:
-      id:
-        name: id
+      todo_id:
+        name: todo_id
         description: 'The ID of the todo.'
         required: true
         example: 2
@@ -396,7 +443,7 @@ endpoints:
         exampleWasSpecified: false
         custom: []
     cleanUrlParameters:
-      id: 2
+      todo_id: 2
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []
@@ -419,7 +466,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer f4Dah3Pg1d6Vabke8Zc6Ev5'
+      - 'Bearer bc8e3Dd1k5EVhvfaZg4a6P6'
     controller: null
     method: null
     route: null

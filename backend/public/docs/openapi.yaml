@@ -1,6 +1,6 @@
 openapi: 3.0.3
 info:
-  title: 'CodeLab API Documentation'
+  title: 'Core Notes API Documentation'
   description: ''
   version: 1.0.0
 servers:
@@ -74,11 +74,11 @@ paths:
                 email:
                   type: string
                   description: 'The email of the user. Must be a valid email address.'
-                  example: pparisian@example.com
+                  example: raphaelle37@example.org
                 password:
                   type: string
                   description: 'The password of the user.'
-                  example: nihil
+                  example: eaque
               required:
                 - email
                 - password
@@ -150,20 +150,119 @@ paths:
                 name:
                   type: string
                   description: 'The name of the user.'
-                  example: libero
+                  example: et
                 email:
                   type: string
                   description: 'The email of the user. Must be a valid email address.'
-                  example: carmela.damore@example.net
+                  example: bahringer.amber@example.com
                 password:
                   type: string
                   description: 'The password of the user.'
-                  example: atque
+                  example: inventore
               required:
                 - name
                 - email
                 - password
       security: []
+  /api/auth/me:
+    get:
+      summary: 'Get user data'
+      operationId: getUserData
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  user:
+                    email: string
+                    name: string
+                properties:
+                  user:
+                    type: object
+                    properties:
+                      email:
+                        type: string
+                        example: string
+                      name:
+                        type: string
+                        example: string
+        401:
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: string
+                properties:
+                  message:
+                    type: string
+                    example: string
+        500:
+          description: 'Server error'
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: string
+                properties:
+                  message:
+                    type: string
+                    example: string
+      tags:
+        - 'Authentication endpoints'
+      security: []
+  /api/todo/stats:
+    get:
+      summary: 'Get post stats'
+      operationId: getPostStats
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  total: integer
+                  completed: integer
+                  pending: integer
+                  overdue: integer
+                properties:
+                  total:
+                    type: string
+                    example: integer
+                  completed:
+                    type: string
+                    example: integer
+                  pending:
+                    type: string
+                    example: integer
+                  overdue:
+                    type: string
+                    example: integer
+        403:
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: string
+                properties:
+                  message:
+                    type: string
+                    example: string
+      tags:
+        - 'Todo Item Management'
   /api/todo:
     get:
       summary: 'Display a listing of the resource.'
@@ -255,11 +354,11 @@ paths:
                 title:
                   type: string
                   description: 'The title of the todo item. Must not be greater than 255 characters. Must be at least 3 characters.'
-                  example: hvnhss
+                  example: xrswfdhjwxtdojkaxqeuhixmfvjtpwcaqfhhmiaytjfejkceizyceiuotpu
                 description:
                   type: string
-                  description: 'The description of the todo item.'
-                  example: 'Reprehenderit ut culpa consequatur vero eaque qui quam maiores.'
+                  description: 'The description of the todo item. Must be at least 3 characters.'
+                  example: 'Molestias at placeat explicabo recusandae cupiditate animi perspiciatis ad.'
                 completed:
                   type: boolean
                   description: 'The completion status of the todo item.'
@@ -271,14 +370,15 @@ paths:
                 due_date:
                   type: string
                   description: 'The due date of the todo item. Must be a valid date.'
-                  example: '2024-08-13T01:28:46'
+                  example: '2024-08-13T14:20:13'
                 favorite:
                   type: boolean
                   description: 'The favorite status of the todo item.'
-                  example: false
+                  example: true
               required:
                 - title
-  '/api/todo/{id}':
+                - description
+  '/api/todo/{todo_id}':
     get:
       summary: 'Display the specified resource.'
       operationId: displayTheSpecifiedResource
@@ -367,15 +467,15 @@ paths:
                 title:
                   type: string
                   description: 'The title of the todo item. Must not be greater than 255 characters. Must be at least 3 characters.'
-                  example: mxtmr
+                  example: awsmtzuqluvxnkaslitocxhhsbndmkcgkunff
                 description:
                   type: string
                   description: 'The description of the todo item.'
-                  example: 'Tempora enim non commodi atque.'
+                  example: 'Et aut eum dignissimos soluta.'
                 completed:
                   type: boolean
                   description: 'The completion status of the todo item.'
-                  example: false
+                  example: true
                 color:
                   type: string
                   description: 'The color of the todo item.'
@@ -383,11 +483,11 @@ paths:
                 due_date:
                   type: string
                   description: 'The due date of the todo item. Must be a valid date.'
-                  example: '2024-08-13T01:28:46'
+                  example: '2024-08-13T14:20:14'
                 favorite:
                   type: boolean
                   description: 'The favorite status of the todo item.'
-                  example: true
+                  example: false
     delete:
       summary: 'Remove the specified resource from storage.'
       operationId: removeTheSpecifiedResourceFromStorage
@@ -423,7 +523,7 @@ paths:
     parameters:
       -
         in: path
-        name: id
+        name: todo_id
         description: 'The ID of the todo.'
         example: 2
         required: true

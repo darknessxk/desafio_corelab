@@ -26,6 +26,10 @@ class JwtGuard implements Guard
     {
         $user = $this->provider->retrieveByCredentials($credentials);
 
+        if ($user === null) {
+            throw new \InvalidArgumentException('User credentials invalid');
+        }
+
         if (!$user instanceof JwtUser) {
             throw new \InvalidArgumentException('User must implement JwtUser');
         }

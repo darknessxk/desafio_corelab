@@ -4,7 +4,11 @@
 
 1. Clone this repository
 2. Run `sail up -d` or `docker-compose up -d` to start the containers
-3. Access `http://localhost:8000/docs` in your browser to check api docs
+3. Run `saul artisan jwt:generate` to generate the jwt secret or
+   - `docker-compose exec laravel.test php artisan jwt:generate`
+4. Run `sail artisan migrate --seed` to run the migrations and seed the database or 
+   - `docker-compose exec laravel.test php artisan migrate --seed`
+5. Access `http://localhost:8000/docs` in your browser to check api docs
 
 ## API
 
@@ -19,6 +23,12 @@ To run tests, you can use the following command:
 
 ```bash
 sail test
+```
+
+or
+
+```bash
+docker-compose exec laravel.test php artisan test
 ```
 
 Coverage still a bit low but do what it needs to do.

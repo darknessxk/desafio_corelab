@@ -15,7 +15,7 @@ class StoreTodoItemRequest extends FormRequest
     {
         return [
             'title' => ['required', 'string', 'max:255', 'min:3'],
-            'description' => ['string'],
+            'description' => ['required', 'string', 'min:3'],
             'completed' => ['boolean'],
             'color' => ['hex_color'],
             'due_date' => ['date'],

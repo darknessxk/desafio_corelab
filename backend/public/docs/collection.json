@@ -1,0 +1,402 @@
+{
+    "variable": [
+        {
+            "id": "baseUrl",
+            "key": "baseUrl",
+            "type": "string",
+            "name": "string",
+            "value": "http:\/\/localhost"
+        }
+    ],
+    "info": {
+        "name": "CodeLab API Documentation",
+        "_postman_id": "6fa97966-e5ef-4019-a8fb-8714103459c9",
+        "description": "",
+        "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.1.0\/collection.json"
+    },
+    "item": [
+        {
+            "name": "Authentication endpoints",
+            "description": "\nAuthentication endpoints",
+            "item": [
+                {
+                    "name": "Login",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/auth\/login",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/auth\/login"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"email\":\"pparisian@example.com\",\"password\":\"nihil\"}"
+                        },
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\"token\": \"string\"}",
+                            "name": "Success"
+                        },
+                        {
+                            "header": [],
+                            "code": 401,
+                            "body": "{\"message\": \"string\"}",
+                            "name": "Unauthorized"
+                        },
+                        {
+                            "header": [],
+                            "code": 422,
+                            "body": "{\"message\": \"string\"}",
+                            "name": "Validation error"
+                        },
+                        {
+                            "header": [],
+                            "code": 500,
+                            "body": "{\"message\": \"string\"}",
+                            "name": "Server error"
+                        }
+                    ]
+                },
+                {
+                    "name": "Register",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/auth\/register",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/auth\/register"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"name\":\"libero\",\"email\":\"carmela.damore@example.net\",\"password\":\"atque\"}"
+                        },
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\"token\": \"string\"}",
+                            "name": "Success"
+                        },
+                        {
+                            "header": [],
+                            "code": 401,
+                            "body": "{\"message\": \"string\"}",
+                            "name": "Unauthorized"
+                        },
+                        {
+                            "header": [],
+                            "code": 422,
+                            "body": "{\"message\": \"string\"}",
+                            "name": "Validation error"
+                        },
+                        {
+                            "header": [],
+                            "code": 500,
+                            "body": "{\"message\": \"string\"}",
+                            "name": "Server error"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Todo Item Management",
+            "description": "\nTodo item management endpoints",
+            "item": [
+                {
+                    "name": "Display a listing of the resource.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/todo",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/todo"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "\\App\\Models\\TodoItem",
+                            "name": "Success"
+                        },
+                        {
+                            "header": [],
+                            "code": 204,
+                            "body": "null",
+                            "name": "No items found"
+                        },
+                        {
+                            "header": [],
+                            "code": 403,
+                            "body": "{\"message\": \"string\"}",
+                            "name": "Unauthorized"
+                        }
+                    ]
+                },
+                {
+                    "name": "Store anewly created resource in storage.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/todo",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/todo"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"title\":\"hvnhss\",\"description\":\"Reprehenderit ut culpa consequatur vero eaque qui quam maiores.\",\"completed\":true,\"due_date\":\"2024-08-13T01:28:46\",\"favorite\":false}"
+                        },
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 201,
+                            "body": "\\App\\Models\\TodoItem",
+                            "name": "Success"
+                        },
+                        {
+                            "header": [],
+                            "code": 403,
+                            "body": "{\"message\": \"string\"}",
+                            "name": "Unauthorized"
+                        },
+                        {
+                            "header": [],
+                            "code": 417,
+                            "body": "{\"message\": \"string\"}",
+                            "name": "Failed to create item"
+                        },
+                        {
+                            "header": [],
+                            "code": 422,
+                            "body": "{\"message\": \"string\"}",
+                            "name": "Validation error"
+                        }
+                    ]
+                },
+                {
+                    "name": "Display the specified resource.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/todo\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/todo\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "2",
+                                    "description": "The ID of the todo."
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "\\App\\Models\\TodoItem",
+                            "name": "Success"
+                        },
+                        {
+                            "header": [],
+                            "code": 403,
+                            "body": "{\"message\": \"string\"}",
+                            "name": "Unauthorized"
+                        }
+                    ]
+                },
+                {
+                    "name": "Update the specified resource in storage.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/todo\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/todo\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "2",
+                                    "description": "The ID of the todo."
+                                }
+                            ]
+                        },
+                        "method": "PUT",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"title\":\"mxtmr\",\"description\":\"Tempora enim non commodi atque.\",\"completed\":false,\"due_date\":\"2024-08-13T01:28:46\",\"favorite\":true}"
+                        },
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "\\App\\Models\\TodoItem",
+                            "name": "Success"
+                        },
+                        {
+                            "header": [],
+                            "code": 403,
+                            "body": "{\"message\": \"string\"}",
+                            "name": "Unauthorized"
+                        },
+                        {
+                            "header": [],
+                            "code": 417,
+                            "body": "{\"message\": \"string\"}",
+                            "name": "Failed to update item"
+                        },
+                        {
+                            "header": [],
+                            "code": 422,
+                            "body": "{\"message\": \"string\"}",
+                            "name": "Validation error"
+                        }
+                    ]
+                },
+                {
+                    "name": "Remove the specified resource from storage.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/todo\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/todo\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "2",
+                                    "description": "The ID of the todo."
+                                }
+                            ]
+                        },
+                        "method": "DELETE",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\"message\": \"string\"}",
+                            "name": "Item deleted"
+                        },
+                        {
+                            "header": [],
+                            "code": 403,
+                            "body": "{\"message\": \"string\"}",
+                            "name": "Unauthorized"
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "auth": {
+        "type": "bearer",
+        "bearer": [
+            {
+                "key": "Authorization",
+                "type": "string"
+            }
+        ]
+    }
+}
